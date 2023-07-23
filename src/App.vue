@@ -62,15 +62,15 @@
                   text
                   @click="dialog = false"
               >
-                Show timetable
+                Show my timetable
               </v-btn>
-              <v-btn
-                  color="grey accent-4"
-                  text
-                  @click="showAllAndClose"
-              >
-                Show all events
-              </v-btn>
+<!--              <v-btn-->
+<!--                  color="grey accent-4"-->
+<!--                  text-->
+<!--                  @click="showAllAndClose"-->
+<!--              >-->
+<!--                Show all events-->
+<!--              </v-btn>-->
             </v-card-actions>
           </v-card>
         </v-dialog>

@@ -128,13 +128,24 @@ export default {
           :label="`Ukrainian`"
           :disabled="disabled"
       ></v-switch>
-      <v-switch
-          v-model="internalFlinta"
-          @change="handleFlintaChange"
-          color="green"
-          :label="`Flinta`"
-          :disabled="disabled"
-      ></v-switch>
+
+      <v-tooltip top color="green">
+        <template v-slot:activator="{ on, attrs }">
+          <div v-bind="attrs" v-on="on">
+            <v-switch
+                v-model="internalFlinta"
+                @change="handleFlintaChange"
+                color="green"
+                :label="`FLINTA`"
+                :disabled="disabled"
+            ></v-switch>
+          </div>
+        </template>
+        <span>Women, Lesbians, Intersex, Nonbinary, Trans and Agender People</span>
+      </v-tooltip>
+
+
+
       <v-switch
           v-model="internalInternational"
           @change="handleInternationalChange"
