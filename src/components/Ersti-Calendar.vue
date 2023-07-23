@@ -14,13 +14,18 @@ export default {
   },
   computed: {
     filteredEvents(){
-      return this.events.filter(event =>
-          !(this.international && event.parallel) &&
-          (!event.international || this.international) &&
-          (this.degree === event.degree || !this.degree || !event.degree) &&
-          (!event.flinta || this.flinta) &&
-          (!event.ukrainian || this.ukrainian) &&
-          (this.course === event.course || !this.course || !event.course));
+      if(this.all){
+        return this.events
+      }else{
+        return this.events.filter(event =>
+            !(this.international && event.parallel) &&
+            (!event.international || this.international) &&
+            (this.degree === event.degree || !this.degree || !event.degree) &&
+            (!event.flinta || this.flinta) &&
+            (!event.ukrainian || this.ukrainian) &&
+            (this.course === event.course || !this.course || !event.course));
+      }
+
     }
   },
 
@@ -29,6 +34,10 @@ export default {
     degree: {
       type: String,
       default: null
+    },
+    all:{
+      type: Boolean,
+      default: false,
     },
     course: {
       type:String,

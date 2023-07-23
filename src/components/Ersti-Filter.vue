@@ -11,6 +11,10 @@ export default {
     internalInternational: null,
   }),
   props: {
+    disabled:{
+      type: Boolean,
+      default: false
+    },
     coursesDict: {
       type: Object
     }, //TODO add more
@@ -49,10 +53,10 @@ export default {
   },
 
   watch: {
-      selectedDegree(newVal){
+      selected_degree(newVal){
         this.internalSelectedDegree = newVal;
       },
-    selectedCourse(newVal){
+    selected_course(newVal){
       this.internalSelectedCourse = newVal;
     },
     ukrainian(newVal){
@@ -103,6 +107,7 @@ export default {
           v-on:change="handleDegreeChange"
           :items="degrees"
           label="Angestrebter Studienabschluss"
+          :disabled="disabled"
 
       ></v-select>
       <v-select
@@ -113,6 +118,7 @@ export default {
           item-text="text"
           item-value="value"
           label="Studiengang"
+          :disabled="disabled"
       ></v-select>
 
       <v-switch
@@ -120,18 +126,21 @@ export default {
           @change="handleUkrainianChange"
           color="#0057B7"
           :label="`Ukrainian`"
+          :disabled="disabled"
       ></v-switch>
       <v-switch
           v-model="internalFlinta"
           @change="handleFlintaChange"
           color="green"
           :label="`Flinta`"
+          :disabled="disabled"
       ></v-switch>
       <v-switch
           v-model="internalInternational"
           @change="handleInternationalChange"
           color="purple"
           :label="`International`"
+          :disabled="disabled"
       ></v-switch>
     </v-container>
 

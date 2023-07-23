@@ -31,30 +31,93 @@
     </v-app-bar>
 
     <v-main class="grey lighten-3">
+      <div class="text-center">
+        <v-dialog
+            v-model="dialog"
+            width="500"
+            overlay-opacity="0.9"
+            :persistent="true"
+        >
+
+          <v-card>
+            <v-card-title class="text-h5 pink lighten-2 white--text">
+              Create individual timetable
+            </v-card-title>
+              <ErstiFilter :ukrainian="ukrainian"
+                           :flinta="flinta"
+                           :international="international"
+                           :selected_degree="selected_degree"
+                           :courses-dict="coursesDict"
+                           @update:selectedDegree="selectDegree"
+                           @update:selectedCourse="selectCourse"
+                           @update:ukrainian="toggleUkrainian"
+                           @update:flinta="toggleFlinta"
+                           @update:international="toggleInternational">
+
+              </ErstiFilter>
+            <v-divider></v-divider>
+            <v-card-actions>
+              <v-btn
+                  color="pink"
+                  text
+                  @click="dialog = false"
+              >
+                Show timetable
+              </v-btn>
+              <v-btn
+                  color="grey accent-4"
+                  text
+                  @click="showAllAndClose"
+              >
+                Show all events
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </div>
       <v-container>
         <v-row>
           <v-col
               cols="12"
               sm="2"
           >
-            <v-sheet
+            <v-card
                 rounded="lg"
-                min-height="268"
+                min-height="50"
             >
-              <ErstiFilter
-                  :ukrainian="ukrainian"
-                  :flinta="flinta"
-                  :international="international"
-                  :selected_degree="selected_degree"
-                  :courses-dict="coursesDict"
-                  @update:selectedDegree="selectDegree"
-                  @update:selectedCourse="selectCourse"
-                  @update:ukrainian="toggleUkrainian"
-                  @update:flinta="toggleFlinta"
-                  @update:international="toggleInternational"
-              ></ErstiFilter>
+
+              <v-card-text
+              >
+                <ErstiFilter
+
+                    :disabled="this.all"
+                    :ukrainian="ukrainian"
+                    :flinta="flinta"
+                    :international="international"
+                    :selected_degree="selected_degree"
+                    :courses-dict="coursesDict"
+                    @update:selectedDegree="selectDegree"
+                    @update:selectedCourse="selectCourse"
+                    @update:ukrainian="toggleUkrainian"
+                    @update:flinta="toggleFlinta"
+                    @update:international="toggleInternational"
+                ></ErstiFilter>
+              </v-card-text>
+
+              <v-spacer></v-spacer>
+              <v-card-actions>
+                <v-btn
+                    text
+                    :color="this.all ? 'primary' : 'grey accent-4'"
+                    @click="handleClick"
+                >
+                  {{ this.all ? 'Create Individual Timetable' : 'Show All Events' }}
+                </v-btn>
+              </v-card-actions>
+
               <!--  -->
-            </v-sheet>
+            </v-card>
+
           </v-col>
 
           <v-col
@@ -71,6 +134,7 @@
                   :international="international"
                   :degree="selected_degree"
                   :course="selected_course"
+                  :all="all"
               ></ErstiCalendar>
             </v-sheet>
           </v-col>
@@ -115,6 +179,19 @@ export default {
     },
     selectCourse(value){
       this.selected_course = value;
+    },
+    handleClick() {
+      this.reveal = true;
+      this.toggleAll();
+      this.selected_degree = null;
+      this.selected_course = null;
+    },
+    showAllAndClose(){
+      this.all = true;
+      this.dialog = false;
+    },
+    toggleAll() {
+      this.all = !this.all;
     }
 
   },
@@ -125,6 +202,8 @@ export default {
     selected_degree: null,
     selected_course: null,
     coursesDict,
+    dialog: true,
+    all: false,
     links: [
       'Dashboard',
       'Messages',
