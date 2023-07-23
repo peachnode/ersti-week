@@ -124,18 +124,18 @@ export default {
       <v-switch
           v-model="internalUkrainian"
           @change="handleUkrainianChange"
-          color="#0057B7"
+          color="ukraine"
           :label="`Ukrainian`"
           :disabled="disabled"
       ></v-switch>
 
-      <v-tooltip top color="green">
+      <v-tooltip top color="flinta">
         <template v-slot:activator="{ on, attrs }">
           <div v-bind="attrs" v-on="on">
             <v-switch
                 v-model="internalFlinta"
                 @change="handleFlintaChange"
-                color="green"
+                color="flinta"
                 :label="`FLINTA`"
                 :disabled="disabled"
             ></v-switch>
@@ -149,7 +149,7 @@ export default {
       <v-switch
           v-model="internalInternational"
           @change="handleInternationalChange"
-          color="purple"
+          color="international"
           :label="`International`"
           :disabled="disabled"
       ></v-switch>

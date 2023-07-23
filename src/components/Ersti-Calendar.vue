@@ -62,8 +62,19 @@ export default {
       this.type = 'day'
     },
     getEventColor(event) {
-        return event.color; // return the normal color if not international or not parallel
-
+      if(event.ukrainian){
+        return 'ukraine'
+      }else if(event.flinta){
+        return 'flinta'
+      }else if(event.international){
+        return 'international'
+      }else if(event.degree === 'master'){
+        return 'master'
+      }else if(event.degree === 'bachelor'){
+        return 'bachelor'
+      }else{
+        return 'primary';
+      }
     },
     prev () {
       this.$refs.calendar.prev()

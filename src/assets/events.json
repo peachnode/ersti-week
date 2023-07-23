@@ -3,7 +3,6 @@
     "name": "Begrüßung Bachelor & How TU Studium",
     "start": "2022-10-06T10:00:00",
     "end": "2022-10-06T12:00:00",
-    "color": "red",
     "details": "Hybrid, H0104 /n https://tubcloud.tu-berlin.de/s/A8bTb8iTdptgywS",
     "degree": "bachelor",
     "parallel": true
@@ -12,7 +11,6 @@
     "name": "Begrüßung Master & How TU Studium",
     "start": "2022-10-06T13:00:00",
     "end": "2022-10-06T15:00:00",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "parallel": true
@@ -21,7 +19,6 @@
     "name": "Einführungsveranstaltung für internationale Studierende",
     "start": "2022-10-06T08:00:00",
     "end": "2022-10-06T18:00:00",
-    "color": "purple",
     "details": "Hybrid, H0104",
     "international": true
   },
@@ -29,7 +26,6 @@
     "name": "Einführung Wirtschaftsinformatik (B)",
     "start": "2022-10-07T11:00:00",
     "end": "2022-10-07T12:00:00",
-    "color": "red",
     "details": "Hybrid, H0104",
     "degree": "bachelor",
     "parallel": true,
@@ -39,7 +35,6 @@
     "name": "Einführung Elektrotechnik (B)",
     "start": "2022-10-07T11:15:00",
     "end": "2022-10-07T12:15:00",
-    "color": "red",
     "details": "Hybrid, H0104",
     "degree": "bachelor",
     "parallel": true,
@@ -49,7 +44,6 @@
     "name": "Einführung Technische Informatik (B)",
     "start": "2022-10-07T14:00:00",
     "end": "2022-10-07T15:00:00",
-    "color": "red",
     "details": "Hybrid, H0104",
     "degree": "bachelor",
     "parallel": true,
@@ -59,7 +53,6 @@
     "name": "Einführung Automotive Systems (M)",
     "start": "2022-10-07T10:00:00",
     "end": "2022-10-07T11:00:00",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "parallel": true,
@@ -69,7 +62,6 @@
     "name": "Einführung Elektrotechnik (M)",
     "start": "2022-10-07T10:00:00",
     "end": "2022-10-07T11:00:00",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "parallel": true,
@@ -79,7 +71,6 @@
     "name": "Einführung ICT Innovation (M)",
     "start": "2022-10-07T10:00:00",
     "end": "2022-10-07T12:00:00",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "parallel": true,
@@ -89,7 +80,6 @@
     "name": "Einführung Computer Engineering",
     "start": "2022-10-07T15:00:00",
     "end": "2022-10-07T16:00:00",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "parallel": true,
@@ -99,7 +89,6 @@
     "name": "Einführung Computer Science (M)",
     "start": "2022-10-07",
     "end": "2022-10-07",
-    "color": "orange",
     "details": "Hybrid, H0104",
     "degree": "master",
     "course": "m_ce"
@@ -108,7 +97,6 @@
     "name": "Einführungsveranstaltung für internationale Studierende",
     "start": "2022-10-07T08:00:00",
     "end": "2022-10-07T18:00:00",
-    "color": "purple",
     "details": "Hybrid, H0104",
     "international": true
   },
@@ -116,7 +104,6 @@
     "name": "Уні в Німеччині vs. Уні в Україні - Uni in Deutschland vs Uni in der Ukraine ",
     "start": "2022-10-08T11:00:00",
     "end": "2022-10-08T13:00:00",
-    "color": "yellow",
     "ukrainian": true
   },
   {
@@ -129,7 +116,6 @@
     "name": "InFraNet: Picknick für Studentinnen*",
     "start": "2022-10-12T10:00:00",
     "end": "2022-10-12T19:00:00",
-    "color": "green",
     "flinta": true
   },
   {
@@ -142,7 +128,6 @@
     "name": "Einführung Informatik (B)",
     "start": "2022-10-10T12:15:00",
     "end": "2022-10-10T14:00:00",
-    "color": "red",
     "details": "Hybrid, EB 301",
     "degree": "bachelor",
     "course": "b_inf"
@@ -151,7 +136,6 @@
     "name": "Einführung Medieninformatik (B)",
     "start": "2022-10-10T12:00:00",
     "end": "2022-10-10T14:00:00",
-    "color": "red",
     "details": "Hybrid, MAR 0.011",
     "degree": "bachelor",
     "course": "b_mi"
@@ -160,7 +144,6 @@
     "name": "Einführung Medieninformatik (B)",
     "start": "2022-10-10T14:00:00",
     "end": "2022-10-10T16:00:00",
-    "color": "red",
     "details": "Hybrid, MAR 0.011",
     "degree": "bachelor",
     "course": "b_mt"
@@ -169,7 +152,6 @@
     "name": "Q&A Computer Science (M)",
     "start": "2022-10-10T15:00:00",
     "end": "2022-10-10T16:00:00",
-    "color": "yellow",
     "details": "online",
     "degree": "master",
     "course": "m_cs"
@@ -178,7 +160,6 @@
     "name": "Einführung Medieninformatik (M)",
     "start": "2022-10-10T16:00:00",
     "end": "2022-10-10T18:00:00",
-    "color": "yellow",
     "details": "Hybrid, MAR 0.011",
     "degree": "master",
     "course": "m_mi"
