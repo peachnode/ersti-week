@@ -1,7 +1,7 @@
 <script>
 
 export default {
-  emits: ['update:selectedDegree', 'update:selectedCourse','update:ukrainian', 'update:flinta', 'update:international'],
+  emits: ['update:selectedDegree', 'update:selectedCourse', 'update:ukrainian', 'update:flinta', 'update:international'],
   data: () => ({
     degrees: ['bachelor', 'master'],
     internalSelectedDegree: null,
@@ -11,7 +11,7 @@ export default {
     internalInternational: null,
   }),
   props: {
-    disabled:{
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -21,7 +21,7 @@ export default {
     selected_degree: {
       type: String,
       default: null,
-      validator: function(value){
+      validator: function (value) {
         return ['bachelor', 'master', null].includes(value);
       }
     },
@@ -47,44 +47,44 @@ export default {
       let degreePrefix = this.internalSelectedDegree === 'bachelor' ? 'b_' : 'm_';
       let keys = Object.keys(this.coursesDict).filter(key => key.startsWith(degreePrefix));
       return keys.map(key => {
-        return { text: this.coursesDict[key], value: key };
+        return {text: this.coursesDict[key], value: key};
       });
     },
   },
 
   watch: {
-      selected_degree(newVal){
-        this.internalSelectedDegree = newVal;
-      },
-    selected_course(newVal){
+    selected_degree(newVal) {
+      this.internalSelectedDegree = newVal;
+    },
+    selected_course(newVal) {
       this.internalSelectedCourse = newVal;
     },
-    ukrainian(newVal){
+    ukrainian(newVal) {
       this.internalUkrainian = newVal;
     },
-    flinta(newVal){
+    flinta(newVal) {
       this.internalFlinta = newVal;
     },
-    international(newVal){
+    international(newVal) {
       this.internalInternational = newVal;
     }
   },
   methods: {
-    handleDegreeChange(){
+    handleDegreeChange() {
       this.$emit('update:selectedDegree', this.internalSelectedDegree);
       this.internalSelectedCourse = null; // Set the selected course to null
       this.$emit('update:selectedCourse', null); // Emit the course change
     },
-    handleCourseChange(){
+    handleCourseChange() {
       this.$emit('update:selectedCourse', this.internalSelectedCourse)
     },
-    handleUkrainianChange(){
+    handleUkrainianChange() {
       this.$emit('update:ukrainian', this.internalUkrainian);
     },
-    handleFlintaChange(){
+    handleFlintaChange() {
       this.$emit('update:flinta', this.internalFlinta);
     },
-    handleInternationalChange(){
+    handleInternationalChange() {
       this.$emit('update:international', this.internalInternational);
     }
   },
@@ -101,59 +101,58 @@ export default {
 
 <template>
 
-    <v-container fluid>
-      <v-select
-          v-model="internalSelectedDegree"
-          v-on:change="handleDegreeChange"
-          :items="degrees"
-          label="Angestrebter Studienabschluss"
-          :disabled="disabled"
+  <v-container fluid>
+    <v-select
+        v-model="internalSelectedDegree"
+        v-on:change="handleDegreeChange"
+        :items="degrees"
+        label="Angestrebter Studienabschluss"
+        :disabled="disabled"
 
-      ></v-select>
-      <v-select
-          v-if="selected_degree"
-          :items="courses"
-          v-model="internalSelectedCourse"
-          v-on:change="handleCourseChange"
-          item-text="text"
-          item-value="value"
-          label="Studiengang"
-          :disabled="disabled"
-      ></v-select>
+    ></v-select>
+    <v-select
+        v-if="selected_degree"
+        :items="courses"
+        v-model="internalSelectedCourse"
+        v-on:change="handleCourseChange"
+        item-text="text"
+        item-value="value"
+        label="Studiengang"
+        :disabled="disabled"
+    ></v-select>
 
-      <v-switch
-          v-model="internalUkrainian"
-          @change="handleUkrainianChange"
-          color="ukraine"
-          :label="`Ukrainian`"
-          :disabled="disabled"
-      ></v-switch>
+    <v-switch
+        v-model="internalUkrainian"
+        @change="handleUkrainianChange"
+        color="ukraine"
+        :label="`Ukrainian`"
+        :disabled="disabled"
+    ></v-switch>
 
-      <v-tooltip top color="flinta">
-        <template v-slot:activator="{ on, attrs }">
-          <div v-bind="attrs" v-on="on">
-            <v-switch
-                v-model="internalFlinta"
-                @change="handleFlintaChange"
-                color="flinta"
-                :label="`FLINTA`"
-                :disabled="disabled"
-            ></v-switch>
-          </div>
-        </template>
-        <span>Women, Lesbians, Intersex, Nonbinary, Trans and Agender People</span>
-      </v-tooltip>
+    <v-tooltip top color="flinta">
+      <template v-slot:activator="{ on, attrs }">
+        <div v-bind="attrs" v-on="on">
+          <v-switch
+              v-model="internalFlinta"
+              @change="handleFlintaChange"
+              color="flinta"
+              :label="`FLINTA`"
+              :disabled="disabled"
+          ></v-switch>
+        </div>
+      </template>
+      <span>Women, Lesbians, Intersex, Nonbinary, Trans and Agender People</span>
+    </v-tooltip>
 
 
-
-      <v-switch
-          v-model="internalInternational"
-          @change="handleInternationalChange"
-          color="international"
-          :label="`International`"
-          :disabled="disabled"
-      ></v-switch>
-    </v-container>
+    <v-switch
+        v-model="internalInternational"
+        @change="handleInternationalChange"
+        color="international"
+        :label="`International`"
+        :disabled="disabled"
+    ></v-switch>
+  </v-container>
 
 
 </template>
