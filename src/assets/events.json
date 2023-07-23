@@ -145,7 +145,6 @@
     "color": "red",
     "details": "Hybrid, EB 301",
     "degree": "bachelor",
-    "parallel": true,
     "course": "b_inf"
   },
   {
@@ -155,7 +154,6 @@
     "color": "red",
     "details": "Hybrid, MAR 0.011",
     "degree": "bachelor",
-    "parallel": true,
     "course": "b_mi"
   },
   {
@@ -165,7 +163,6 @@
     "color": "red",
     "details": "Hybrid, MAR 0.011",
     "degree": "bachelor",
-    "parallel": true,
     "course": "b_mt"
   },
   {
