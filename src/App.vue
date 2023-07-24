@@ -11,13 +11,15 @@
       ></v-avatar>
 
       <v-tabs
+          v-show="$vuetify.breakpoint.smAndDown"
           centered
           class="ml-n9"
           color="grey darken-1"
       >
         <v-tab
-            v-for="link in links"
-            :key="link"
+            v-for="(link, index) in links"
+            :key="index"
+            @click="scrollToColumn(index)"
         >
           {{ link }}
         </v-tab>
@@ -79,6 +81,7 @@
       <v-container>
         <v-row>
           <v-col
+              ref="filterCol"
               cols="12"
               sm="2"
           >
@@ -143,6 +146,7 @@
           </v-col>
 
           <v-col
+              ref="infoCol"
               cols="12"
               sm="2"
           >
@@ -168,6 +172,23 @@ import coursesDict from "./assets/courses.json"
 export default {
   components: {ErstiFilter, ErstiCalendar},
   methods:{
+    scrollToColumn(index) {
+      let ref;
+      switch(index) {
+        case 0:
+          ref = 'filterCol';
+          break;
+        case 1:
+          ref = 'calendarCol';
+          break;
+        case 2:
+          ref = 'infoCol';
+          break;
+      }
+      this.$nextTick(() => {
+        this.$refs[ref].scrollIntoView({ behavior: 'smooth' });
+      });
+    },
     closeDialogAndScrollToCalendar() {
       this.dialog = false;
       this.$nextTick(() => {
@@ -214,10 +235,9 @@ export default {
     dialog: true,
     all: false,
     links: [
-      'Dashboard',
-      'Messages',
-      'Profile',
-      'Updates',
+      'Filter',
+      'Calendar',
+      'Additional Information'
     ],
   }),
 }
