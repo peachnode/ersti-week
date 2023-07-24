@@ -61,7 +61,7 @@
               <v-btn
                   color="pink"
                   text
-                  @click="dialog = false"
+                  @click="closeDialogAndScrollToCalendar"
               >
                 Show my timetable
               </v-btn>
@@ -123,6 +123,7 @@
           </v-col>
 
           <v-col
+              ref="calendarCol"
               cols="12"
               sm="8"
           >
@@ -167,6 +168,12 @@ import coursesDict from "./assets/courses.json"
 export default {
   components: {ErstiFilter, ErstiCalendar},
   methods:{
+    closeDialogAndScrollToCalendar() {
+      this.dialog = false;
+      this.$nextTick(() => {
+        this.$refs.calendarCol.scrollIntoView({ behavior: 'smooth' });
+      });
+    },
     toggleUkrainian(){
       this.ukrainian = !this.ukrainian;
     },
