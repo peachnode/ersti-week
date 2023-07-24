@@ -8,6 +8,7 @@ export default {
     selectedElement: null,
     selectedOpen: false,
     events: events,
+    counter: 0,
      }),
   mounted () {
     this.$refs.calendar.checkChange()
@@ -57,6 +58,16 @@ export default {
     }
   },
   methods: {
+    prev () {
+      if (this.counter > 0) { // Only go back if counter > 0
+        this.$refs.calendar.prev()
+        this.counter--;
+      }
+    },
+    next () {
+      this.$refs.calendar.next()
+      this.counter++;
+    },
     viewDay ({ date }) {
       this.focus = date
       this.type = 'day'
@@ -75,12 +86,6 @@ export default {
       }else{
         return 'primary';
       }
-    },
-    prev () {
-      this.$refs.calendar.prev()
-    },
-    next () {
-      this.$refs.calendar.next()
     },
     showEvent ({ nativeEvent, event }) {
       const open = () => {
@@ -116,6 +121,7 @@ export default {
                 small
                 color="grey darken-2"
                 @click="prev"
+                :disabled="counter === 0"
             >
               <v-icon small>
                 mdi-chevron-left
